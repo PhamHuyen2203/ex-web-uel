@@ -6,7 +6,8 @@
 { 
     border:1px solid blue; 
     background:gray; 
-    float:left; 
+    float:left;
+    width: 100%;
     top: 60px; 
     text-indent:0px; 
 } 
@@ -47,4 +48,5 @@
 {  
   width:100%; 
   border:1px solid green  
+
 } 
