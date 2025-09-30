@@ -1,0 +1,54 @@
+body { 
+    color: green;  
+    background: white url(Draft.jpg) no-repeat fixed center center; 
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+hr {
+    border: 1px solid black;
+}
+address {
+    font-size: 0.9em;
+    font-style: normal;
+    text-align: center;
+}
+blockquote {
+    background-color: silver;
+}
+ul {
+    list-style: circle url(images/Apple.jpg) outside;
+}
+ul b {
+    color: rgb(155,0,0);
+}
+a {
+    font-size: 0.9em;
+    color: blue;
+}
+a:hover {
+    color: red;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.Special {
+    color: rgb(153,102,6);
+    font-weight: bold;
+}
+.header, .nav {
+    text-align: center;
+}
+div.Article { 
+    padding: 0.5em;  
+    border-style: solid;  
+    border-width: 2px;  
+    background-color: rgb(252, 221, 163); 
+    width: 250px;  
+    float: right; 
+}
+.Article img {
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
