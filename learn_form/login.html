@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - Login</title>
+        <script>
+            function open_itbclub() 
+            {
+                alert("Bạn muốn mở website ITB Club ?")
+                window.open("https://itbclub.uel/edu.vn","_blank")
+            }
+        </script>
+    </head>
+    <body>
+        <form 
+            name="frm_login"
+            action="processlogin.html"
+            method="get">
+            <fieldset>
+                <legend>Login HR System</legend>
+            <table>
+                <tr>
+                    <td>
+                        <lable for="username">User Name:</lable>
+                    </td>
+                    <td>
+                        <input type="text" name="username" id="username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="password" id="password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="checkbox" name="save" id="save"/>
+                        <lable for="save">
+                            Save login info
+                        </lable>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="submit">Login</button>
+                        <button type="reset">Reset</button>
+                        <button type="button" onclick="open_itbclub()">Open ITB Club</button>
+                    </td>
+                </tr>
+            </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
