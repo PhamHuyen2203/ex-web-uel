@@ -1,0 +1,51 @@
+* { 
+    box-sizing: border-box; 
+}
+body { 
+    font-family: 'Times New Roman', Times, serif;
+    margin: 15px; 
+}
+h2 { 
+    margin: 0 0 12px; 
+}
+.panel {
+    border: 2px solid #9fb3c8;
+    padding: 10px 12px 14px;
+    width: 740px;
+}
+table { 
+    width: 100%;
+    text-align: center;
+}
+th, td { 
+    padding: 8px; 
+    vertical-align: middle; 
+}
+input[type="number"], input[readonly] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #cfd6df;
+    outline: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.total-label { 
+    text-align: right; 
+    font-weight: bold; 
+}
+.btn {
+    padding: 7px 20px;
+    border: 2px solid #8aa9c7;
+    border-radius: 4px;
+    background: #dfeaf6;
+    cursor: pointer;
+}
+.btn:active { 
+    transform: translateY(1px); 
+}
+.qty, .itotal { 
+    width: 160px; 
+}

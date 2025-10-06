@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phạm Huyền - Ex53</title>
+  <link rel="stylesheet" href="mainstyle.css">
+</head>
+<body>
+  <form id="frm" action="results.html" method="get" class="panel">
+    <table>
+      <thead>
+        <tr>
+          <th>Part Number</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Item table</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-part="C112" data-desc="Chuột Quang" data-price="19.95">
+          <td>C112
+            <input type="hidden" name="desc_C112" value="Chuột Quang">
+            <input type="hidden" name="price_C112" value="19.95">
+          </td>
+          <td>Chuột Quang</td>
+          <td>19.95$</td>
+          <td><input class="qty" type="number" name="qty_C112" min="0" step="1" value=""></td>
+          <td><input class="itotal" type="text" name="itotal_C112" value="" readonly></td>
+        </tr>
+        <tr data-part="B124" data-desc="Bàn Phím" data-price="29.95">
+          <td>B124
+            <input type="hidden" name="desc_B124" value="Bàn Phím">
+            <input type="hidden" name="price_B124" value="29.95">
+          </td>
+          <td>Bàn Phím</td>
+          <td>29.95$</td>
+          <td><input class="qty" type="number" name="qty_B124" min="0" step="1" value=""></td>
+          <td><input class="itotal" type="text" name="itotal_B124" value="" readonly></td>
+        </tr>
+        <tr data-part="U125" data-desc="USB KingMax" data-price="39.95">
+          <td>U125
+            <input type="hidden" name="desc_U125" value="USB KingMax">
+            <input type="hidden" name="price_U125" value="39.95">
+          </td>
+          <td>USB KingMax</td>
+          <td>39.95$</td>
+          <td><input class="qty" type="number" name="qty_U125" min="0" step="1" value=""></td>
+          <td><input class="itotal" type="text" name="itotal_U125" value="" readonly></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" class="total-label">Total</td>
+          <td><input id="grand_total" name="grand_total" type="text" value="" readonly></td>
+        </tr>
+        <tr>
+          <td colspan="5" style="text-align:right">
+            <button class="btn" type="submit">SUM</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+
+  <script>
+    // Định dạng số tiền 2 chữ số thập phân
+    const fmt = n => Number(n).toFixed(2);
+
+    function recalc() {
+      let sum = 0;
+      document.querySelectorAll('tbody tr').forEach(tr => {
+        const price = parseFloat(tr.dataset.price);
+        const qty = parseInt(tr.querySelector('.qty').value || '0', 10);
+        const itotal = price * qty;
+        tr.querySelector('.itotal').value = fmt(itotal); // readonly vẫn được submit
+        sum += itotal;
+      });
+      document.getElementById('grand_total').value = fmt(sum);
+    }
+
+    // Recalc khi thay đổi số lượng
+    document.querySelectorAll('.qty').forEach(i => i.addEventListener('input', recalc));
+    // Tính lần đầu
+    recalc();
+
+    // (tuỳ chọn) Ngăn submit nếu mọi qty đều 0
+    document.getElementById('frm').addEventListener('submit', e => {
+      const any = [...document.querySelectorAll('.qty')].some(i => parseInt(i.value || '0', 10) > 0);
+      if (!any) {
+        if (!confirm('Tất cả số lượng hiện đang là 0. Bạn vẫn muốn gửi?')) e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kết quả tính tổng</title>
+  <style>
+    body { 
+        font-family: 'Times New Roman', Times, serif; 
+        margin: 28px; 
+    }
+    h2 { 
+        margin-top: 0; 
+    }
+    table { 
+        width: 720px; 
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th, td { 
+        padding: 8px 10px; 
+        border: 1px solid #d8dee6; 
+    }
+    th { 
+        background: #f3f6f9; 
+        text-align: center; 
+    }
+    tfoot td { 
+        font-weight: bold; 
+    }
+    .muted { 
+        color: #6b7280; 
+        font-size: 12px; 
+    }
+  </style>
+</head>
+<body>
+  <h2>Results</h2>
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th>Price ($)</th>
+        <th>Qty</th>
+        <th>Item total ($)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align:right">Total</td>
+        <td id="grand"></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script>
+    const p = new URLSearchParams(location.search);
+    const rows = [];
+    const parts = ['C112','B124','U125'];
+
+    parts.forEach(code => {
+      const qty = parseInt(p.get('qty_' + code) || '0', 10);
+      const price = parseFloat(p.get('price_' + code) || '0');
+      const desc  = p.get('desc_' + code) || '';
+      const itotal = p.get('itotal_' + code) || (price * qty).toFixed(2);
+
+      rows.push({ code, desc, price, qty, itotal });
+    });
+
+    const tbody = document.querySelector('#tbl tbody');
+    let sum = 0;
+    rows.forEach(r => {
+      if (r.qty > 0 || r.itotal !== '0.00') {
+        sum += parseFloat(r.itotal);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.code}</td>
+          <td>${r.desc}</td>
+          <td>${Number(r.price).toFixed(2)}</td>
+          <td>${r.qty}</td>
+          <td>${Number(r.itotal).toFixed(2)}</td>`;
+        tbody.appendChild(tr);
+      }
+    });
+
+    // Nếu trang nguồn đã gửi grand_total thì ưu tiên dùng, ngược lại dùng sum vừa tính.
+    const grand = p.get('grand_total');
+    document.getElementById('grand').textContent = (grand ?? sum).toString();
+  </script>
+</body>
+</html>
