@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền</title>
+        <!--Khi launch page thì tô nền vàng cho h1-->
+        <!--
+            h1 thì ở trong body, còn tại vị trí này nó đang null
+        -->
+        <script type="text/javascript">
+            function set_bg_color()
+            {
+                h1=document.getElementById("mytitle")
+                h1.setAttribute("style", "background-color:yellow")
+            }
+            num_click=0
+            function change_bg_color()
+            {
+                num_click=num_click+1
+                if (num_click%2!=0)
+                {
+                    h1=document.getElementById("mytitle")
+                    h1.setAttribute("style", "background-color:cyan")
+                }
+                else
+                {
+                    h1=document.getElementById("mytitle")
+                    h1.setAttribute("style", "background-color:yellow")
+                }
+            }
+            function do_solution()
+            {
+                a=myform.hsa.value
+                b=myform.hsb.value
+                tdresult=document.getElementById("tdresult")
+                //tdresult.innerText="x="+-b/a
+                tdresult.innerHTML="<font color='red'>x="+(-b/a)+"</font>"
+            }
+            function open_help()
+            {
+                if(confirm("Are you sure want to open the help page?"))
+                {
+                    window.open("https://uel.edu.vn","_blank")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <h1 id="mytitle" onclick="change_bg_color()">First Degree</h1>
+            <table border=1>
+                <tr>
+                    <td>a:</td>
+                    <td>
+                        <input type="text" id="hsa" name="hsa"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>b:</td>
+                    <td>
+                        <input type="text" id="hsb" name="hsb"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="tdresult">
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="button" onclick="do_solution()">Solution</button>
+                        |
+                        <button type="reset">Clear</button>
+                        |
+                        <button type="button" onclick="open_help()">Open Help</button>
+                    </td>
+                </tr>
+            </table>
+            <script type="text/javascript">
+                set_bg_color()
+            </script>
+        </form>
+    </body>
+</html>
