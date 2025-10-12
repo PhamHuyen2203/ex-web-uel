@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - Ex54 - Math Function</title>
+        <script src="../js/mainjs.js"></script>
+        <script type="text/javascript"></script>
+        <style>
+            td {
+                border: 1px solid black;
+                width: 150px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="myform">
+            <fieldset>
+                <legend>Math Function</legend>
+                <table>
+                    <tr>
+                        <td>a:</td>
+                        <td><input type="text" name="a_coeff" id="a_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>b:</td>
+                        <td><input type="text" name="b_coeff" id="b_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>c:</td>
+                        <td><input type="text" name="c_coeff" id="c_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>Result:</td>
+                        <td><input type="text" name="result" id="result"/></td>
+                    </tr>
+                    <tr >
+                        <td colspan="2">
+                            <button type="button" onclick="calculateMax()">MAX</button>
+                            <button type="button" onclick="calculateMin()">MIN</button>
+                            <button type="button" onclick="calculateSin()">sin(a)</button>
+                            <button type="button" onclick="calculateCos()">cos(a)</button>
+                            <button type="button" onclick="calculatePower()">a^b</button>
+                            <button type="reset">Clear</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
