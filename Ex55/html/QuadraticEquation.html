@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - Ex55 - Quadratic Equation</title>
+        <script src="../js/main.js"></script>
+        <script type="text/javascript"></script>
+        <style>
+            h4 {
+                text-align: center;
+                background-color: aquamarine;
+            }
+            td {
+                border: 1px solid black;
+                text-align: center;
+            }
+            #result {
+                color: red;
+            }
+            button {
+                border: 2px solid goldenrod;
+                padding: 3px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h4>The Quadratic Equation</h4>
+        <form name="myform">
+            <fieldset>
+                <table align="center">
+                    <tr>
+                        <td>a:</td>
+                        <td><input type="text" name="a_coeff" id="a_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>b:</td>
+                        <td><input type="text" name="b_coeff" id="b_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>c:</td>
+                        <td><input type="text" name="c_coeff" id="c_coeff"/></td>
+                    </tr>
+                    <tr>
+                        <td>Result:</td>
+                        <td><input type="text" name="result" id="result"/></td>
+                    </tr>
+                    <tr >
+                        <td></td>
+                        <td>
+                            <button type="button" onclick="calculate()">Find Solution</button>
+                            <button type="reset">Clear</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
