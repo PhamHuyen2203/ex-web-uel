@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - Learn Object</title>
+        <script type="text/javascript">
+            var p_item=
+            {
+                Id:"P01",
+                Name:"Coca",
+                Price:100,
+                Quantity:20,
+                Image:"coca.jpg",
+                Value:function()
+                {
+                    return this.Price*this.Quantity
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table>
+                <tr>
+                    <td>ID:</td>
+                    <td id="td_id"></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td id="td_name"></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td id="td_price"></td>
+                </tr>
+                <tr>
+                    <td>Quantity:</td>
+                    <td id="td_quantity"></td>
+                </tr>
+                <tr>
+                    <td>Value:</td>
+                    <td id="td_value"></td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td id="td_image">
+                        <img id="img_product"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script type="text/javascript">
+            td_id.innerText=p_item.Id
+            td_name.innerText=p_item.Name
+            td_price.innerText=p_item.Price
+            td_quantity.innerText=p_item.Quantity
+            img_product.src="../images/"+p_item.Image
+            td_value.innerText=p_item.Value()
+        </script>
+    </body>
+</html>

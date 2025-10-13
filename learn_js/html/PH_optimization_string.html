@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - Optimization String</title>
+        <script>
+            function process_optimization() {
+                var s = myform.name_input.value;
+                s = s.trim();
+                s = s.replace(/\s+/g, ' ');
+
+                var arr = s.split(' ');
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].length > 0) {
+                        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1).toLowerCase();
+                    }
+                }
+                name_output.innerText = arr.join(' ');
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table>
+                <tr>
+                    <td>Input:</td>
+                    <td><input name="name_input" id="name_input" oninput="process_optimization()"/></td>
+                </tr>
+                <tr>
+                    <td>Output:</td>
+                    <td id="name_output"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
