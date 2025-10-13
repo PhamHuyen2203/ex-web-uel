@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Phạm Huyền - DOM - ex1</title>
+        <script type="text/javascript">
+            function create_p_tag() {
+                mydiv=document.getElementById("mydiv")
+                //create a p tag
+                p=document.createElement("p")
+                p.innerText=new Date().toLocaleTimeString()
+                mydiv.appendChild(p)
+
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="create_p_tag()">
+            Create p
+        </button>
+        <div id="mydiv" style="overflow-y: scroll; height: 300;">
+        </div>
+        <script>
+            setInterval(create_p_tag,1000)
+        </script>
+    </body>
+</html>
